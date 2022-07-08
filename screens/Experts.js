@@ -1,12 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import {
-  StyleSheet,
-  View,
-  ActivityIndicator,
-  FlatList,
-  TouchableOpacity,
-  Text,
-} from 'react-native';
+import {StyleSheet, View, ActivityIndicator, FlatList} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import ProfileCard from '../components/ProfileCard';
 
 const Experts = () => {
@@ -35,21 +29,16 @@ const Experts = () => {
         <ActivityIndicator />
       ) : (
         <FlatList
+          contentContainerStyle={styles.listStyle}
           data={data}
           keyExtractor={({id}, index) => {
             return index;
           }}
           renderItem={({item}) => (
-            // <TouchableOpacity
-            //   onPress={() => {
-            //     Linking.openURL(item.url).catch(err =>
-            //       console.error('Error', err),
-            //     );
-            //   }}>
-            //   <Card item={item} />
-            // </TouchableOpacity>
-            // <Text style={{color: 'black'}}>{item.name}</Text>
-            <ProfileCard expertName={item.name} expertCountry={item.country} />
+            <ProfileCard
+              expertName={item.name}
+              expertCountry={item.country == null ? 'N/A' : item.country}
+            />
           )}
         />
       )}
@@ -57,6 +46,12 @@ const Experts = () => {
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  listStyle: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    padding: '5%',
+  },
+});
 
 export default Experts;

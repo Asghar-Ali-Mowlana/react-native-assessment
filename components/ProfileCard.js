@@ -11,8 +11,10 @@ const ProfileCard = ({expertName, expertCountry}) => {
             uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKuySdKYOAP7D4P_OUAy2YvVIpobnm9HJWvMmSJ9aZAw&s',
           }}
         />
-        <Text style={{color: 'white'}}>{expertName}</Text>
-        <Text>{expertCountry}</Text>
+        <View>
+          <Text style={styles.text}>{expertName}</Text>
+          <Text style={styles.text}>{expertCountry}</Text>
+        </View>
       </View>
     </View>
   );
@@ -20,18 +22,26 @@ const ProfileCard = ({expertName, expertCountry}) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    padding: '10%',
+    margin: '4.7%',
   },
   profileContainer: {
     height: 200,
-    width: '45%',
+    width: 150,
+    padding: '10%',
     backgroundColor: 'black',
     borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'space-around',
   },
   logo: {
-    width: 66,
-    height: 58,
+    width: '70%',
+    height: '50%',
+    borderRadius: 100,
+  },
+  text: {
+    color: 'white',
+    textAlign: 'center',
+    fontSize: 10,
   },
 });
 

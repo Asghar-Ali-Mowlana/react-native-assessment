@@ -11,6 +11,7 @@ import Explore from '../screens/Explore';
 import Profile from '../screens/Profile';
 import Experts from '../screens/Experts';
 import Services from '../screens/Services';
+import Login from '../screens/Login';
 
 import Colors from '../constants/Colors';
 
@@ -31,17 +32,17 @@ const AppStack = () => {
         },
       }}>
       <Stack.Screen
+        name="Login"
+        component={Login}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
         name="Home Screen"
         component={BottomTabNavigation}
         options={{
           headerShown: false,
         }}
       />
-      {/* <Stack.Screen
-        name="Instructions"
-        component={Video}
-        options={{headerTitleAlign: 'center'}}
-      /> */}
     </Stack.Navigator>
   );
 };

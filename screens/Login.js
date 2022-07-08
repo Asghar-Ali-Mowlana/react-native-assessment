@@ -1,5 +1,12 @@
 import React, {useState} from 'react';
-import {StyleSheet, View, Text, TextInput, StatusBar} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  TextInput,
+  StatusBar,
+  Alert,
+} from 'react-native';
 import Colors from '../constants/Colors';
 import ModifiedErrorMessage from '../components/ModifiedErrorMessage';
 import ModifiedFormButton from '../components/ModifiedFormButton';
@@ -62,9 +69,35 @@ const Login = props => {
       !data.isValidUser ||
       !data.isValidPassword
     ) {
-      setAlertModalVisible(!alertModalVisible);
+      // setAlertModalVisible(!alertModalVisible);
+      console.log('ENTER VALID DETAILS');
     } else {
-      login(data.email, data.password);
+      fetch('https://stage-api.serw.io/v1/auth/local/login', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: data.email, //'qxkeb06yat@buy-blog.com',
+          password: data.password, //'test@123',
+        }),
+      })
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+          if (data.statusCode == 401) {
+            console.log('WRONG EMAIL AND PASSWORD');
+            Alert.alert(
+              'INVALID CREDENTIALD',
+              'Wrong email or password',
+            );
+          } else {
+            props.navigation.navigate('Home Screen');
+          }
+          console.log(data);
+        });
     }
   };
   // User Login Validation End
