@@ -6,6 +6,7 @@ const ServiceCard = ({
   serviceAmount,
   serviceDuration,
   serviceProvider,
+  serviceImage
 }) => {
   return (
     <View style={styles.container}>
@@ -13,7 +14,7 @@ const ServiceCard = ({
         <Image
           style={styles.image}
           source={{
-            uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKuySdKYOAP7D4P_OUAy2YvVIpobnm9HJWvMmSJ9aZAw&s',
+            uri: {serviceImage},
           }}
         />
       </View>
@@ -31,9 +32,8 @@ const styles = StyleSheet.create({
   container: {},
   imageContainer: {},
   image: {
-    width: '70%',
-    height: '50%',
-    borderRadius: 100,
+    width: 100,
+    height: 100,
   },
   detailsContainer: {},
   textStyle: {

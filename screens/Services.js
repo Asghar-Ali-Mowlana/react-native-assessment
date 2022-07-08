@@ -44,6 +44,7 @@ const Services = () => {
               serviceAmount={item.price}
               serviceDuration={item.durationMinutes}
               serviceProvider={item.callProvider}
+              serviceImage={item.image}
             />
           )}
         />
