@@ -4,9 +4,11 @@ import {
   View,
   ActivityIndicator,
   FlatList,
-  Text,
+  LogBox,
 } from 'react-native';
 import ServiceCard from '../components/ServiceCard';
+
+LogBox.ignoreLogs(['Warning: ...']);
 
 const Services = () => {
   const [isLoading, setLoading] = useState(true);
@@ -31,7 +33,9 @@ const Services = () => {
   return (
     <View style={{}}>
       {isLoading ? (
-        <ActivityIndicator />
+        <View style={{paddingTop: '70%'}}>
+          <ActivityIndicator />
+        </View>
       ) : (
         <FlatList
           data={data}
@@ -44,7 +48,10 @@ const Services = () => {
               serviceAmount={item.price}
               serviceDuration={item.durationMinutes}
               serviceProvider={item.callProvider}
-              // serviceImage={item.image+""}
+              // serviceImage={item.image + ''}
+              servicestatus={item.online}
+              serviceRating={item.rating}
+              serviceReviews={item.ratingCount}
             />
           )}
         />

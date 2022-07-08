@@ -1,7 +1,14 @@
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, View, ActivityIndicator, FlatList} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import {
+  StyleSheet,
+  View,
+  ActivityIndicator,
+  FlatList,
+  LogBox,
+} from 'react-native';
 import ProfileCard from '../components/ProfileCard';
+
+LogBox.ignoreLogs(['Warning: ...']);
 
 const Experts = () => {
   const [isLoading, setLoading] = useState(true);
@@ -24,9 +31,11 @@ const Experts = () => {
   }, []);
 
   return (
-    <View style={{}}>
+    <View>
       {isLoading ? (
-        <ActivityIndicator />
+        <View style={{paddingTop: '70%'}}>
+          <ActivityIndicator />
+        </View>
       ) : (
         <FlatList
           contentContainerStyle={styles.listStyle}

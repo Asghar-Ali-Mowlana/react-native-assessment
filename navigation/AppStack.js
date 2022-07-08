@@ -7,7 +7,6 @@ import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import Home from '../screens/Home';
-import Explore from '../screens/Explore';
 import Profile from '../screens/Profile';
 import Experts from '../screens/Experts';
 import Services from '../screens/Services';
