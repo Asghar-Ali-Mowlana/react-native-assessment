@@ -6,17 +6,16 @@ const ServiceCard = ({
   serviceAmount,
   serviceDuration,
   serviceProvider,
-  serviceImage
 }) => {
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
-        <Image
+        {/* <Image
           style={styles.image}
           source={{
             uri: {serviceImage},
           }}
-        />
+        /> */}
       </View>
       <View style={styles.detailsContainer}>
         <Text style={styles.textStyle}>{serviceTitle}</Text>
