@@ -31,11 +31,11 @@ const AppStack = () => {
           fontWeight: 'bold',
         },
       }}>
-      <Stack.Screen
+      {/* <Stack.Screen
         name="Login"
         component={Login}
         options={{headerShown: false}}
-      />
+      /> */}
       <Stack.Screen
         name="Home Screen"
         component={BottomTabNavigation}
